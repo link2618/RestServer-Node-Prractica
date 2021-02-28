@@ -29,6 +29,12 @@ validarCampos.validate = (method) => {
                 check('id').custom(validateDB.idValido)
             ]
         }
+        case 'login': {
+            return [
+                check('correo', 'El correo es obligatorio.').isEmail(),
+                check('password', 'El password es obligaorio.').not().isEmpty()
+            ]
+        }
     }
 }
 

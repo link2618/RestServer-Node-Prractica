@@ -35,7 +35,8 @@ const usuarioSchema = Schema({
 
 // Para quitar datos de forma automatica al momento de enviarlo en la respuesta
 usuarioSchema.methods.toJSON = function() {
-    const {__v, password, ...usuario} = this.toObject()
+    const {__v, password, _id, ...usuario} = this.toObject()
+    usuario.uid = _id
     return usuario
 }
 

@@ -42,7 +42,7 @@ user.usuariosPost = async (req, res) => {
         // Guardamos en BD
         await usuario.save();
     
-        res.status(200).json({
+        res.status(201).json({
             ok: true,
             message: 'success post',
             data: {usuario}
@@ -87,17 +87,21 @@ user.usuariosPut = async (req, res) => {
 user.usuariosDelete = async (req, res) => {
     const {id} = req.params
 
+    const {usuarioH} = req
+
     // Borrar fisicamente de la BD
     // const usuario = await Usuario.findByIdAndDelete(id)
     
     // Cambiar el estado
     const usuario = await Usuario.findByIdAndUpdate(id, {estado: false})
     
+    const usuarioAutenticado = usuarioH
 
     res.status(200).json({
         ok: true,
         message: 'success',
-        data: usuario
+        data: usuario,
+        usuarioAutenticado
     })  
 }
 
