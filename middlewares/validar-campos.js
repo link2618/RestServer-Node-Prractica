@@ -35,6 +35,11 @@ validarCampos.validate = (method) => {
                 check('password', 'El password es obligaorio.').not().isEmpty()
             ]
         }
+        case 'google': {
+            return [
+                check('id_token', 'El id_token es obligaorio.').not().isEmpty()
+            ]
+        }
     }
 }
 
