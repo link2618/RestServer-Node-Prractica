@@ -11,10 +11,10 @@ const router = Router()
 
 router.get('/', validarJWT, tieneRole('ADMIN_ROLE', 'VENTAS_ROLE'), user.usuariosGet)
 
-router.put('/:id', validarJWT, tieneRole('ADMIN_ROLE', 'VENTAS_ROLE'), validarCampos.validate('updateUser'), validarCampos.validarUsuario, user.usuariosPut)
+router.put('/:id', validarJWT, tieneRole('ADMIN_ROLE', 'VENTAS_ROLE'), validarCampos.validate('updateUser'), validarCampos.validarCamposObligatorios, user.usuariosPut)
 
-router.post('/', validarCampos.validate('createUser'), validarCampos.validarUsuario, user.usuariosPost)
+router.post('/', validarCampos.validate('createUser'), validarCampos.validarCamposObligatorios, user.usuariosPost)
 
-router.delete('/:id', validarJWT, adminRole, validarCampos.validate('deleteUser'), validarCampos.validarUsuario, user.usuariosDelete)
+router.delete('/:id', validarJWT, adminRole, validarCampos.validate('deleteUser'), validarCampos.validarCamposObligatorios, user.usuariosDelete)
 
 module.exports = router

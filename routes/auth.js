@@ -4,7 +4,7 @@ const login = require('../controllers/auth')
 
 const router = Router()
 
-router.post('/login', validarCampos.validate('login'), validarCampos.validarUsuario, login.Login)
-router.post('/google', validarCampos.validate('google'), validarCampos.validarUsuario, login.googleSignin)
+router.post('/login', validarCampos.validate('login'), validarCampos.validarCamposObligatorios, login.Login)
+router.post('/google', validarCampos.validate('google'), validarCampos.validarCamposObligatorios, login.googleSignin)
 
 module.exports = router
