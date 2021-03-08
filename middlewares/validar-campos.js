@@ -92,6 +92,12 @@ validarCampos.validate = (method) => {
                 check('id').custom(validateDB.idValidoPro)
             ]
         }
+        case 'updateImg': {
+            return [
+                check('id', 'No es un id valido.').isMongoId(),
+                check('coleccion').custom( c => validateDB.coleccionesP(c, ['users', 'products']))
+            ]
+        }
     }
 }
 

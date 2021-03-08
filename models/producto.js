@@ -31,7 +31,10 @@ const ProductoShema = Schema({
     disponible: {
         type: Boolean,
         default: true,
-    }
+    },
+    img: {
+        type: String,
+    },
 })
 
 // Para quitar datos de forma automatica al momento de enviarlo en la respuesta

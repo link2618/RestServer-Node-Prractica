@@ -44,4 +44,14 @@ validateDB.idValidoPro = async (id = '') => {
     }
 }
 
+validateDB.coleccionesP = async (coleccion = '', colecciones = []) => {
+    const incluida = colecciones.includes(coleccion);
+
+    if(!incluida) {
+        throw new Error('la coleccion no es permitida.')
+    }
+
+    return true
+}
+
 module.exports = validateDB
